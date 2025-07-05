@@ -1,0 +1,12 @@
+{
+    "audios": [
+        {
+            "_name": "Shot",
+            "_path": "Audio/Shot"
+        },
+        {
+            "_name": "Test",
+            "_path": "Audio/Test"
+        }
+    ]
+}
