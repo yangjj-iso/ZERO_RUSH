@@ -6,6 +6,8 @@ public class GunController : MonoBehaviour
 {
     private GunView _gunView;
     private GunModel _gunModel;
+    
+    //
     void Start()
     {
         _gunView = GetComponent<GunView>();

@@ -13,7 +13,7 @@ public class SceneController
         {
             if(instance == null)
             {
-                Debug.LogError("³¡¾°¿ØÖÆÆ÷Î´°ó¶¨ÊµÀı");
+                Debug.LogError("åœºæ™¯æ§åˆ¶å™¨æœªç»‘å®šå®ä¾‹");
                 return null;
             }
             return instance;
@@ -23,17 +23,17 @@ public class SceneController
     public Dictionary<string, SceneBase> dictScene;
 
     /// <summary>
-    /// ¼ÓÔØÒ»¸ö³¡¾°
+    /// åŠ è½½ä¸€ä¸ªåœºæ™¯
     /// </summary>
-    /// <param name="name">Ä¿±ê³¡¾°Ãû³Æ</param>
-    /// <param name="sceneBace">Ä¿±ê³¡¾°scene</param>
+    /// <param name="name">ç›®æ ‡åœºæ™¯åç§°</param>
+    /// <param name="sceneBace">ç›®æ ‡åœºæ™¯scene</param>
     public void LoadScene(string name, SceneBase sceneBace)
     {
         if(!dictScene.ContainsKey(name))
             dictScene.Add(name, sceneBace);
         if (dictScene.ContainsKey(SceneManager.GetActiveScene().name))
             dictScene[SceneManager.GetActiveScene().name].ExitScene();
-        else Debug.LogError($"SceneControlÎ´¼ÇÂ¼{SceneManager.GetActiveScene().name}!");
+        else Debug.LogError($"SceneControlæœªè®°å½•{SceneManager.GetActiveScene().name}!");
 
         #region pop()
         GameRoot.Instance.UIManagerRoot.Clear();

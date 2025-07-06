@@ -11,7 +11,7 @@ public class GameRoot : MonoBehaviour
         {
             if (_instance == null)
             {
-                Debug.LogWarning("GameRootÃ»ÓĞ°ó¶¨ÊµÀı!");
+                Debug.LogWarning("GameRootæ²¡å®ç°!");
                 return _instance;
             }
             return _instance;
@@ -38,7 +38,7 @@ public class GameRoot : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
-        _uiManager = new UIManager();
+        _uiManager = UIManager.Instance;
         _sceneController = new SceneController();
         _gunManager = new GunManager();
         _bulletManager = new BulletManager();
@@ -50,7 +50,7 @@ public class GameRoot : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
         _uiManager.canvasObj = UIMethods.Instance.FindCanvas();
 
-        #region ÍÆÈë¿ªÊ¼ÓÎÏ·½çÃæ
+        #region å¼€å§‹æ¸¸æˆ
         UIManager.Instance.Push(new MainMenuPanel(MainMenuPanel.uIType));
         #endregion
     }

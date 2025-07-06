@@ -18,15 +18,15 @@ public class GunView : MonoBehaviour
 
     public void UpdateView(GunModel gunModel)
     {
-        _overloadRate.text = $"¹ıÔØ½ø¶È: {gunModel.OverloadRate.ToString("#0.00")}/{gunModel.Gun.MaxOverloadRate.ToString("#0.00")}";
+        _overloadRate.text = $"è¿‡è½½è¿›åº¦: {gunModel.OverloadRate.ToString("#0.00")}/{gunModel.Gun.MaxOverloadRate.ToString("#0.00")}";
         switch(gunModel.Gun.ShotMode)
         {
             case GunBase.ShotModeType.SingleShot:
-                _shotMode.text = "µ¥·¢";break;
+                _shotMode.text = "å•å‘";break;
             case GunBase.ShotModeType.TripleShot:
-                _shotMode.text = "ÈıÁ¬·¢";break;
+                _shotMode.text = "ä¸‰è¿å‘";break;
             case GunBase.ShotModeType.Automatic:
-                _shotMode.text = "È«×Ô¶¯";break;
+                _shotMode.text = "å…¨è‡ªåŠ¨";break;
         }
     }
 }

@@ -6,14 +6,14 @@ using UnityEngine.SceneManagement;
 public abstract class SceneBase
 {
     /// <summary>
-    /// ½øÈë¸Ã³¡¾°Ê±´¥·¢
+    /// è¿›å…¥è¯¥åœºæ™¯æ—¶è§¦å‘
     /// </summary>
     public virtual void EnterScene(Scene scene, LoadSceneMode loadSceneMode)
     {
         SceneManager.sceneLoaded -= EnterScene;
     }
     /// <summary>
-    /// ÍË³ö¸Ã³¡¾°Ê±´¥·¢
+    /// é€€å‡ºè¯¥åœºæ™¯æ—¶è§¦å‘
     /// </summary>
     public abstract void ExitScene();
 

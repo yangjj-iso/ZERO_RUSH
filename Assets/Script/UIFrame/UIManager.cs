@@ -8,11 +8,11 @@ public class UIManager
     public Stack<BasePanel> stackUI;
 
     /// <summary>
-    /// µ±Ç°³¡¾°ÏÂµÄ»­²¼£¨canvas£©.
+    /// å½“å‰åœºæ™¯ä¸‹çš„ç”»å¸ƒï¼ˆcanvasï¼‰.
     /// </summary>
     public GameObject canvasObj;
 
-    private static UIManager instance;
+    private static UIManager instance = new UIManager();
     public static UIManager Instance 
     {
         get
@@ -23,40 +23,39 @@ public class UIManager
         }
     }
     public BasePanel CurrentPanel { get => stackUI.Peek(); }
-    public UIManager() 
+    private UIManager() 
     {
-        instance = this;
         stackUI = new Stack<BasePanel>();
         dictUIObject = new Dictionary<string, GameObject>();
     }
     
     /// <summary>
-    /// »ñÈ¡UIType¶ÔÓ¦µÄ½çÃæ
+    /// è·å–UITypeå¯¹åº”çš„ç•Œé¢
     /// </summary>
-    /// <param name="uiType">»­²¼ÀàĞÍ</param>
+    /// <param name="uiType">ç”»å¸ƒç±»å‹</param>
     /// <returns></returns>
     public GameObject GetSingleObject(UIType uiType) 
     {
         if (dictUIObject.ContainsKey(uiType.Name))
             return dictUIObject[uiType.Name];
-        //Èç¹û¸ÃUIÒÑ¾­¼ÓÔØµ½ÄÚ´æÖĞ£¨¼´ÔÚ×ÖµäÀï£©£¬Ö±½Ó·µ»Ø
+        //å¦‚æœè¯¥UIå·²ç»åŠ è½½åˆ°å†…å­˜ä¸­ï¼ˆå³åœ¨å­—å…¸é‡Œï¼‰ï¼Œç›´æ¥è¿”å›
         if(canvasObj == null)
         {
-            Debug.LogError("Î´ÕÒµ½»­²¼");
+            Debug.LogError("æœªæ‰¾åˆ°ç”»å¸ƒ");
             return null;
         }
-        //Èç¹ûµ±Ç°³¡¾°ÏÂÃ»ÓĞ»­²¼£¬ËµÃ÷³öÁËÎÊÌâ
+        //å¦‚æœå½“å‰åœºæ™¯ä¸‹æ²¡æœ‰ç”»å¸ƒï¼Œè¯´æ˜å‡ºäº†é—®é¢˜
         //Debug.Log("RUA!");
         GameObject gameObject = GameObject.Instantiate<GameObject>(Resources.Load<GameObject>(uiType.Path));
         dictUIObject.Add(uiType.Name, gameObject);
-        //½«ĞÂUI¼ÓÔØµ½ÄÚ´æÖĞ£¨Ìí¼Óµ½×ÖµäÖĞ£©
+        //å°†æ–°UIåŠ è½½åˆ°å†…å­˜ä¸­ï¼ˆæ·»åŠ åˆ°å­—å…¸ä¸­ï¼‰
         return gameObject;
     }
 
     /// <summary>
-    /// ÏòUI¶ÑÕ»ÖĞÍÆÈëÒ»¸öUI£¬´ËUIÏÔÊ¾ÔÚ×î¶¥²ã
+    /// å‘UIå †æ ˆä¸­æ¨å…¥ä¸€ä¸ªUIï¼Œæ­¤UIæ˜¾ç¤ºåœ¨æœ€é¡¶å±‚
     /// </summary>
-    /// <param name="ui">ĞÂUI</param>
+    /// <param name="ui">æ–°UI</param>
     public void Push(BasePanel ui) 
     {
         if (stackUI.Count > 0)
@@ -65,7 +64,7 @@ public class UIManager
         }
         GameObject basePanelObject = GetSingleObject(ui.uiType);
         //dictUIObject.Add(ui.uiType.Name, basePanelObject);
-        //ÕâÀï²»ĞèÒªAdd£¬ÒòÎªGetSingleObject±£Ö¤¼ÓÔØµÄUI½øÈë×Öµä
+        //è¿™é‡Œä¸éœ€è¦Addï¼Œå› ä¸ºGetSingleObjectä¿è¯åŠ è½½çš„UIè¿›å…¥å­—å…¸
         ui.activeObj = basePanelObject;
 
         if (stackUI.Count == 0)
@@ -79,13 +78,13 @@ public class UIManager
                 stackUI.Push(ui);
             }
         }
-        ui.OnStart();//ÍÆÈëÕ»¶¥ºóÖ´ĞĞOnStart
-        //·ÀÖ¹Ë«»÷Ê²Ã´µÄµ¼ÖÂÍ¬Ò»¸öUIµ¯³ö¶à´Î¡£Èç¹ûÕ»¶¥µÄUIºÍ¼ÓÔØµÄuiÏàÍ¬¾ÍºöÂÔÕâ´ÎÍÆÈë
+        ui.OnStart();//æ¨å…¥æ ˆé¡¶åæ‰§è¡ŒOnStart
+        //é˜²æ­¢åŒå‡»ä»€ä¹ˆçš„å¯¼è‡´åŒä¸€ä¸ªUIå¼¹å‡ºå¤šæ¬¡ã€‚å¦‚æœæ ˆé¡¶çš„UIå’ŒåŠ è½½çš„uiç›¸åŒå°±å¿½ç•¥è¿™æ¬¡æ¨å…¥
 
     }
 
     /// <summary>
-    /// Çå¿ÕUIÕ»
+    /// æ¸…ç©ºUIæ ˆ
     /// </summary>
     public void Clear()
     {
@@ -99,7 +98,7 @@ public class UIManager
         }
     }
     /// <summary>
-    /// µ¯³ö£¨¹Ø±Õ£©Õ»¶¥UI
+    /// å¼¹å‡ºï¼ˆå…³é—­ï¼‰æ ˆé¡¶UI
     /// </summary>
     public void Pop()
     {
