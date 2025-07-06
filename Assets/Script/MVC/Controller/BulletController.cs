@@ -28,10 +28,15 @@ public class BulletController : MonoBehaviour
     {
         GameObject.Destroy(gameObject);
     }
+    private void DecreaseTime()
+    {
+        _bulletModel.DecreaseTime(Time.deltaTime);
+    }
 
     // Update is called once per frame
     void Update()
     {
         Move();
+        DecreaseTime();
     }
 }

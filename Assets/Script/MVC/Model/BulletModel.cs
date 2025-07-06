@@ -19,6 +19,11 @@ public class BulletModel
         OnUpdate?.Invoke(this);
     }
 
+    /// <summary>
+    /// 设置发射的枪与子弹种类
+    /// </summary>
+    /// <param name="gun"></param>
+    /// <param name="bullet"></param>
     public void SetInfo(GunBase gun, BulletBase bullet)
     {
         _gun = gun;
@@ -26,6 +31,10 @@ public class BulletModel
         _remainingTime = bullet.MaxExistTime;
     }
 
+    /// <summary>
+    /// 减少销毁倒计时
+    /// </summary>
+    /// <param name="deltaTime"></param>
     public void DecreaseTime(float deltaTime)
     {
         _remainingTime -= deltaTime;
