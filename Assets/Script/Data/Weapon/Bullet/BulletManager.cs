@@ -12,7 +12,7 @@ public class BulletManager
         {
             if (_instance == null)
             {
-                Debug.LogError("×Óµ¯¹ÜÀíÆ÷Î´°ó¶¨ÊµÀı!");
+                Debug.LogError("å­å¼¹ç®¡ç†å™¨æœªç»‘å®šå®ä¾‹");
             }
             return _instance;
         }
@@ -20,31 +20,31 @@ public class BulletManager
     private static readonly string _jsonFilePath = Path.Combine(Application.dataPath, "Resources/Prefab/Weapon", "bullet_list.json");
     private static Dictionary<string, GameObject> _bulletDict;
     /// <summary>
-    /// Í¨¹ıBulletType¶ÁÈ¡×Óµ¯ÊµÌå
+    /// ä¾æ®bullettypeåŠ è½½å­å¼¹ç‰©ä½“åˆ°å†…å­˜
     /// </summary>
     /// <param name="type"></param>
     public void Add(BulletType type)
     {
         if (_bulletDict.ContainsKey(type.Name))
         {
-            Debug.LogError($"Ãû³ÆÎª{type.Name}µÄ×Óµ¯ÒÑ¼ÓÔØ¹ı");
+            Debug.LogError($"å·²åŠ è½½åç§°ä¸º{type.Name}çš„å­å¼¹");
             return;
         }
         GameObject gameObject = Resources.Load<GameObject>(type.Path);
         if (gameObject != null) _bulletDict.Add(type.Name, Resources.Load<GameObject>(type.Path));
-        else Debug.LogError($"Î´ÕÒµ½Ãû³ÆÎª{type.Name}£¬Â·¾¶Îª{type.Path}µÄ×Óµ¯");
+        else Debug.LogError($"æœªæ‰¾åˆ°åç§°ä¸º{type.Name}ï¼Œè·¯å¾„ä¸º{type.Path}çš„å­å¼¹ç‰©ä½“");
     }
 
     /// <summary>
-    /// Í¨¹ıÃû³Æ´ÓÄÚ´æÖĞ¼ÓÔØ×Óµ¯ÊµÀı
+    /// ä»å†…å­˜ä¸­å®ä¾‹åŒ–å­å¼¹
     /// </summary>
-    /// <param name="name">×Óµ¯Ãû³Æ</param>
+    /// <param name="name">å­å¼¹åç§°</param>
     /// <returns></returns>
     public GameObject Load(string name)
     {
         if(!_bulletDict.ContainsKey(name))
         {
-            Debug.Log($"Î´¼ÓÔØÃû³ÆÎª{name}µÄ×Óµ¯ÊµÀı");
+            Debug.Log($"å­å¼¹ç®¡ç†å™¨æœªåŒ…å«åç§°ä¸º{name}çš„å­å¼¹");
             return null;
         }
         return _bulletDict[name];
@@ -62,6 +62,6 @@ public class BulletManager
                 Add(bullet);
             }
         }
-        else Debug.LogError("Î´ÕÒµ½×Óµ¯Êı¾İJson");
+        else Debug.LogError("æœªæ‰¾åˆ°bullet_list.json");
     }
 }

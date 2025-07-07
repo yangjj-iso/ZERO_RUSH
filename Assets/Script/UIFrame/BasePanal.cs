@@ -8,7 +8,7 @@ public class BasePanel
     public bool activeFlag;
 
     /// <summary>
-    /// UIÔÚUnityÒıÇæÖĞ¶ÔÓ¦µÄGameObject
+    /// å½“å‰åœºæ™¯çš„GameObject
     /// </summary>
     public GameObject activeObj;
 
@@ -18,7 +18,7 @@ public class BasePanel
     }
 
     /// <summary>
-    /// ÔÚUIÈëÕ»Ê±µ÷ÓÃ
+    /// UIç¬¬ä¸€æ¬¡æ¿€æ´»æ—¶è§¦å‘
     /// </summary>
     public virtual void OnStart()
     {
@@ -27,7 +27,7 @@ public class BasePanel
     }
 
     /// <summary>
-    /// ÔÚUI±»ÆôÓÃÊ±µ÷ÓÃ
+    /// UIè¢«å¯ç”¨æ—¶è§¦å‘
     /// </summary>
     public virtual void OnEnable() 
     {
@@ -36,7 +36,7 @@ public class BasePanel
     }
 
     /// <summary>
-    /// ÔÚUI±»¹Ø±ÕÊ±µ÷ÓÃ
+    /// UIè¢«ç¦ç”¨æ—¶è§¦å‘
     /// </summary>
     public virtual void OnDisable() 
     {
@@ -45,7 +45,7 @@ public class BasePanel
     }
 
     /// <summary>
-    /// ÔÚUI±»´ÓÄÚ´æÖĞÏú»ÙÊ±µ÷ÓÃ
+    /// UIè¢«æ‘§æ¯æ—¶è§¦å‘
     /// </summary>
     public virtual void OnDestroy()
     {
@@ -54,7 +54,7 @@ public class BasePanel
     }
 
     /// <summary>
-    /// µ±UI±»ÖÃÓÚÕ»¶¥»òÕß±ğµÄÊ²Ã´ĞèÒªË¢ĞÂµÄÇé¿öÏÂµ÷ÓÃ
+    /// UIåœ¨æ›´æ–°åºåˆ—ä¸­æ—¶è§¦å‘
     /// </summary>
     public virtual void OnUpdate()
     {

@@ -12,7 +12,7 @@ public class AudioManager
         { 
             if (_instance == null)
             {
-                Debug.LogError("ÒôÆµ¹ÜÀíÆ÷Î´°ó¶¨ÊµÀı");
+                Debug.LogError("éŸ³é¢‘æ§åˆ¶å™¨æœªç»‘å®šå®ä¾‹");
                 return null;
             }
             return _instance;
@@ -20,33 +20,45 @@ public class AudioManager
     }
     private AudioSource _audioSource;
     private Dictionary<string, AudioClip> _audioClipDict;
+    /// <summary>
+    /// åŠ è½½æ–°éŸ³æ•ˆ
+    /// </summary>
+    /// <param name="audio"></param>
     public void Add(AudioType audio)
     {
         if(_audioClipDict.ContainsKey(audio.Name))
         {
-            Debug.LogError($"ÒÑ¼ÓÔØÍ¬ÃûÒôĞ§{audio.Name}");
+            Debug.LogError($"å·²åŠ è½½{audio.Name}éŸ³æ•ˆ");
             return;
         }
         AudioClip audioClip = Resources.Load<AudioClip>(audio.Path);
         _audioClipDict.Add(audio.Name, audioClip);
     }
 
+    /// <summary>
+    /// æ’­æ”¾éŸ³ä¹
+    /// </summary>
+    /// <param name="name"></param>
     public void PlayAudio(string name)
     {
         if (!_audioClipDict.ContainsKey(name))
         {
-            Debug.LogError($"²»´æÔÚÃû³ÆÎª{name}µÄÒôĞ§");
+            Debug.LogError($"å­—å…¸ä¸­æ²¡æœ‰{name}éŸ³æ•ˆ");
             return;
         }
         _audioSource.clip = (_audioClipDict[name]);
         _audioSource.Play();
     }
 
+    /// <summary>
+    /// æ’­æ”¾éŸ³æ•ˆ
+    /// </summary>
+    /// <param name="name"></param>
     public void PlaySfx(string name)
     {
         if(!_audioClipDict.ContainsKey(name))
         {
-            Debug.LogError($"²»´æÔÚÃû³ÆÎª{name}µÄÒôĞ§");
+            Debug.LogError($"å­—å…¸ä¸­æ²¡æœ‰{name}éŸ³æ•ˆ");
             return;
         }
         _audioSource.PlayOneShot(_audioClipDict[name]);

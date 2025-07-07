@@ -14,7 +14,7 @@ public class PrototypeGun : GunBase
             case GunBase.ShotModeType.TripleShot:
                 _shotMode = ShotModeType.SingleShot; break;
             default:
-                throw new System.Exception("不存在的开火模式");
+                throw new System.Exception($"涓嶅瓨鍦ㄧ殑灏勫嚮妯″紡");
         }
     }
     public PrototypeGun()

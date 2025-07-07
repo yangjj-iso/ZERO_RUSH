@@ -11,7 +11,7 @@ public class AudioRoot : MonoBehaviour
         {
             if(_instance == null)
             {
-                Debug.LogWarning("音频管理器没有绑定实例！");
+                Debug.LogWarning("闊抽鎾斁鍣ㄦ湭缁戝畾瀹炰緥");
                 return null;
             }
             return _instance;

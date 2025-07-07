@@ -8,7 +8,7 @@ public class GunModel
     GunBase _gun;
     public GunBase Gun { get => _gun; }
 
-    private float _overloadProgress;//¹ýÔØ½ø¶È
+    private float _overloadProgress;//è¿‡è½½è¿›åº¦
     public float OverloadRate 
     {
         get => _overloadProgress;
@@ -28,7 +28,7 @@ public class GunModel
             else _overloadProgress = value;
         }
     }
-    private bool _isOverloading;//ÕýÔÚ¹ýÔØ
+    private bool _isOverloading;//æ˜¯å¦æ­£åœ¨è¿‡è½½
     public bool IsOverloading { get { return _isOverloading; } }
     private float _shotGap;
     public float ShotGap 
@@ -54,7 +54,7 @@ public class GunModel
         ShotGap -= deltaTime;
         Update();
     }
-    private int _shotCount;//´ý·¢Éä×Óµ¯ÊýÄ¿
+    private int _shotCount;//å¾…å¼€ç«æ¬¡æ•°
     public int ShotCount { get => _shotCount; set => _shotCount = value; }
 
     private bool CanShot { get => ShotGap == 0 && !IsOverloading && ShotCount == 0; }

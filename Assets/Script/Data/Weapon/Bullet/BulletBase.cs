@@ -9,12 +9,12 @@ public class BulletBase
     public BulletType BulletType { get { return _bulletType; } }
 
     [SerializeField] protected float _basicDamage = 50;
-    public float Damage { get { return _basicDamage; } }//ÉËº¦
+    public float Damage { get { return _basicDamage; } }//åŸºç¡€å­å¼¹ä¼¤å®³
     [SerializeField] protected float _basicSpeed = 1;
-    public float Speed { get { return _basicSpeed; } }//µ¯ËÙ
+    public float Speed { get { return _basicSpeed; } }//åŸºç¡€å­å¼¹é€Ÿåº¦
 
     [SerializeField] protected float _basicMaxExistTime = 3;
-    public float MaxExistTime {  get { return _basicMaxExistTime; } }//×î´ó×Óµ¯´æÔÚÊ±¼ä
+    public float MaxExistTime {  get { return _basicMaxExistTime; } }//åŸºç¡€å­å¼¹æœ€å¤§å­˜åœ¨æ—¶é—´
     public BulletBase()
     {
 

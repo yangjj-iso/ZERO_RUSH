@@ -17,10 +17,10 @@ public class UIType
     }
 
     /// <summary>
-    /// 获取UI类的信息
+    /// 鍒濆鍖朥IType
     /// </summary>
-    /// <param name="UIName">UI名称</param>
-    /// <param name="UIPath">UI路径</param>
+    /// <param name="UIName"></param>
+    /// <param name="UIPath"></param>
     public UIType(string UIName, string UIPath)
     {
         this.name = UIName;

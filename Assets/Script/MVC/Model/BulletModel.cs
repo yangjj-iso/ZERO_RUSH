@@ -20,7 +20,7 @@ public class BulletModel
     }
 
     /// <summary>
-    /// ÉèÖÃ·¢ÉäµÄÇ¹Óë×Óµ¯ÖÖÀà
+    /// ä¿å­˜å‘å°„è¯¥å­å¼¹æªçš„ç±»å‹
     /// </summary>
     /// <param name="gun"></param>
     /// <param name="bullet"></param>
@@ -32,7 +32,7 @@ public class BulletModel
     }
 
     /// <summary>
-    /// ¼õÉÙÏú»Ùµ¹¼ÆÊ±
+    /// æ¯å¸§å‡å°‘ç›¸åº”çš„å­˜åœ¨æ—¶é—´
     /// </summary>
     /// <param name="deltaTime"></param>
     public void DecreaseTime(float deltaTime)

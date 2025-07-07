@@ -9,10 +9,10 @@ namespace SaveSystemTutorial
     {
         #region JSON
         /// <summary>
-        /// ½«Êı¾İĞòÁĞ»¯ÎªJson×Ö·û´®£¬²¢±£´æµ½Application.persistentDataPath/saveFilePath
+        /// åºåˆ—åŒ–ç±»åˆ°Application.persistentDataPath/saveFilePath
         /// </summary>
-        /// <param name="saveFilePath">Ïà¶ÔÂ·¾¶£¬¼ÇµÃ´øÀ©Õ¹Ãû</param>
-        /// <param name="data">ĞèÒªĞòÁĞ»¯µÄÊı¾İ</param>
+        /// <param name="saveFilePath"></param>
+        /// <param name="data"></param>
         public static void SaveByJson(string saveFilePath, object data)
         {
             string json = JsonUtility.ToJson(data);
@@ -23,28 +23,28 @@ namespace SaveSystemTutorial
             {
                 fileInfo.Directory.Create();
                 #if UNITY_EDITOR
-                Debug.Log("³É¹¦´´½¨ÎÄ¼ş¼Ğ{saveFilePath}");
+                Debug.Log("å·²åˆ›å»º{saveFilePath}");
                 #endif
             }
             try
             {
                 File.WriteAllText(path, json);
                 #if UNITY_EDITOR
-                Debug.Log($"³É¹¦±£´æµ½{path}");
+                Debug.Log($"å·²ä¿å­˜åˆ°{path}");
                 #endif
             }
             catch(System.Exception e)
             {
-                Debug.LogError($"½«Êı¾İ±£´æµ½{path}Ê±·¢Éú´íÎó¡£\n´íÎóÔ­Òò£º{e}");
+                Debug.LogError($"ä¿å­˜åˆ°{path}æ—¶å‘ç”Ÿé”™è¯¯\né”™è¯¯åŸå› ï¼š{e}");
             }
         }
 
         /// <summary>
-        /// ´Ó±¾µØJsonÎÄ¼şÖĞ¼ÓÔØÊı¾İ
+        /// ä»Jsonä¸­ååºåˆ—åŒ–æ•°æ®
         /// </summary>
-        /// <typeparam name="T">Êı¾İÀàĞÍ</typeparam>
-        /// <param name="saveFilePath">JsonÎÄ¼şÂ·¾¶£¬¼ÇµÃ´øÀ©Õ¹Ãû</param>
-        /// <returns>¶ÁÈ¡µÄÊı¾İ</returns>
+        /// <typeparam name="T">ç›®æ ‡æ•°æ®ç±»å‹</typeparam>
+        /// <param name="saveFilePath"></param>
+        /// <returns></returns>
         public static T LoadFromJson<T>(string saveFilePath)
         {
             string path = Path.Combine(Application.persistentDataPath , saveFilePath);
@@ -57,7 +57,7 @@ namespace SaveSystemTutorial
             catch (System.Exception e)
             {
                 #if UNITY_EDITOR
-                Debug.LogError($"´Ó{path}ÖĞ¶ÁÈ¡Êı¾İÊ±·¢Éú´íÎó\n´íÎóÔ­Òò£º{e}");
+                Debug.LogError($"ä»{path}ä¸­è¯»å–æ•°æ®æ—¶å‘ç”Ÿé”™è¯¯\né”™è¯¯åŸå› ï¼š{e}");
                 #endif
                 throw e;
             }
@@ -65,12 +65,11 @@ namespace SaveSystemTutorial
         #endregion
 
         #region Deleteing
-        //TODO: Õâ¶Î´úÂëÎÒ»¹Ã»²âÊÔ£¬ËùÒÔµ½Ê±ºò²âÊÔÒ»ÏÂ
 
         /// <summary>
-        /// É¾³ıApplication.persistentDataPathÖĞµÄÄ¿±êÎÄ¼ş
+        /// ä»Application.persistentDataPathä¸­åˆ é™¤æ–‡ä»¶
         /// </summary>
-        /// <param name="saveFilePath">ĞèÒªÉ¾³ıµÄÎÄ¼şÂ·¾¶£¬¼ÇµÃ´øÀ©Õ¹Ãû</param>
+        /// <param name="saveFilePath"></param>
         public static void DeleteFile(string saveFilePath)
         {
             string path = Path.Combine(Application.persistentDataPath, saveFilePath);
@@ -78,13 +77,13 @@ namespace SaveSystemTutorial
             {
                 File.Delete(path);
                 #if UNITY_EDITOR
-                Debug.Log($"³É¹¦É¾³ı{path}");
+                Debug.Log($"å·²åˆ é™¤{path}");
                 #endif
             }
             catch (System.Exception e)
             {
                 #if UNITY_EDITOR
-                Debug.LogError($"{path}É¾³ıÊ§°Ü¡£\n´íÎóÔ­Òò£º{e}");
+                Debug.LogError($"ä»{path}ä¸­åˆ é™¤æ•°æ®æ—¶å‘ç”Ÿé”™è¯¯ï¼Œé”™è¯¯åŸå› ï¼š{e}");
                 #endif
             }
         }
