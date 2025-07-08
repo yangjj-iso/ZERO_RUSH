@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,27 +7,32 @@ public abstract class GunBase
 {
     [SerializeField]protected static GunType _gunType;
     public virtual GunType GunType {  get { return _gunType; } }
-    [SerializeField] protected static float _basicFireRate = 0.1f;//³õÊ¼ÉäËÙ
+    [SerializeField] protected static float _basicFireRate = 0.1f;//åˆå§‹å°„é€Ÿ
     public virtual float FireRate { get { return _basicFireRate; } }
-    [SerializeField] protected static float _basicOverloadRate = 1.5f;//»ù´¡¹ıÔØÂÊ
+    [SerializeField] protected static float _basicOverloadRate = 1.5f;//åŸºç¡€è¿‡è½½ç‡
     public virtual float OverloadRate
     {
         get { return _basicOverloadRate; }
     }
-    [SerializeField] protected static float _basicCooldownRate = 5;//»ù´¡ÀäÈ´ËÙ¶È
+    [SerializeField] protected static float _basicCooldownRate = 5;//åŸºç¡€å†·å´é€Ÿåº¦
     public virtual float CooldownRate { get { return _basicCooldownRate; } }
-    [SerializeField] protected static float _basicMaxOverloadRate = 100;//»ù´¡¹ıÔØÂÊ×î´óÖµ
+    [SerializeField] protected static float _basicMaxOverloadRate = 100;//åŸºç¡€è¿‡è½½ç‡æœ€å¤§å€¼
     public virtual float MaxOverloadRate { get { return _basicMaxOverloadRate; } }
 
     [SerializeField]protected BulletType _bulletType;
     public BulletType Bullet {  get { return _bulletType; } }
 
-    [SerializeField] protected int _basicBulletNum = 1;//»ù´¡µ¥·¢·¢Éä×Óµ¯ÊıÄ¿
+    [SerializeField] protected int _basicBulletNum = 1;//åŸºç¡€å•å‘å‘å°„å­å¼¹æ•°ç›®
     public virtual int BulletNum
     {
         get { return _basicBulletNum; }
     }
 
+    [SerializeField] protected float _basicDispersion = 0.1f;//åŸºç¡€å­å¼¹æ•£å¸ƒ
+    public virtual float Dispersion
+    {
+        get { return _basicDispersion; }
+    }
 
     public enum ShotModeType
     {

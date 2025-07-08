@@ -105,6 +105,15 @@ public class GunModel
         OnUpdate?.Invoke(this);
     }
 
+    public GunModel()
+    {
+        _gun = new PrototypeGun();
+        _overloadProgress = 0;
+        _shotCount = 0;
+        _shotGap = 0;
+        _isOverloading = false;
+    }
+
     public GunModel(GunBase gun)
     {
         _gun = gun;

@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
@@ -18,32 +18,32 @@ public class GunManager
         }
     }
     private static readonly string _gunJsonPath = Path.Combine(Application.dataPath, "Resources/Prefab/Weapon", "gun_list.json");
-    private Dictionary<string, GameObject> _gunDict;
+    private Dictionary<string, GameObject> _gunObjectDict;
 
     public void Add(GunType type)
     {
-        if (_gunDict.ContainsKey(type.Name))
+        if (_gunObjectDict.ContainsKey(type.Name))
         {
-            Debug.LogError($"Ãû³ÆÎª{type.Name}µÄÇ¹ĞµÒÑ¼ÓÔØ¹ı");
+            Debug.LogError($"åç§°ä¸º{type.Name}çš„æªæ¢°å·²åŠ è½½è¿‡");
             return;
         }
         GameObject gameObject = Resources.Load<GameObject>(type.Path);
-        if (gameObject != null) _gunDict.Add(type.Name, Resources.Load<GameObject>(type.Path));
-        else Debug.LogError($"Î´ÕÒµ½Ãû³ÆÎª{type.Name}£¬Â·¾¶Îª{type.Path}µÄÇ¹Ğµ");
+        if (gameObject != null) _gunObjectDict.Add(type.Name, Resources.Load<GameObject>(type.Path));
+        else Debug.LogError($"æœªæ‰¾åˆ°åç§°ä¸º{type.Name}ï¼Œè·¯å¾„ä¸º{type.Path}çš„æªæ¢°");
     }
     public GameObject Load(string name)
     {
-        if (!_gunDict.ContainsKey(name))
+        if (!_gunObjectDict.ContainsKey(name))
         {
-            Debug.Log($"Î´¼ÓÔØÃû³ÆÎª{name}µÄÎäÆ÷ÊµÀı");
+            Debug.Log($"æœªåŠ è½½åç§°ä¸º{name}çš„æ­¦å™¨å®ä¾‹");
             return null;
         }
-        return _gunDict[name];
+        return _gunObjectDict[name];
     }
 
     public GunManager()
     {
-        _gunDict = new Dictionary<string, GameObject>();
+        _gunObjectDict = new Dictionary<string, GameObject>();
         if (_instance == null) _instance = this;
         GunList gunList = SaveSystemTutorial.SaveSystem.LoadFromJson<GunList>(_gunJsonPath);
         if (gunList != null)
@@ -53,6 +53,6 @@ public class GunManager
                 Add(gun);
             }
         }
-        else Debug.LogError("Î´ÕÒµ½Ç¹ĞµÊı¾İJson");
+        else Debug.LogError("æœªæ‰¾åˆ°æªæ¢°æ•°æ®Json");
     }
 }

@@ -32,9 +32,10 @@ public class BattleFieldPanel : BasePanel
     {
         base.OnStart();
         _hand = UIMethods.Instance.FindObjectInChildren(activeObj, "Hand");
-        GameObject gun = GameObject.Instantiate(GunManager.Instance.Load("PrototypeGun"));
+        GameObject gun = GameObject.Instantiate(GunManager.Instance.Load("ShotGun"));
         gun.transform.SetParent(_hand.transform);
         gun.transform.position = _hand.transform.position;
+        gun.GetComponent<GunController>().LoadGun(new ShotGun());
     }
 
     public override void OnUpdate()
