@@ -4,27 +4,26 @@ using UnityEngine;
 
 public class UIManager
 {
+    private static UIManager _instance;
+    public static UIManager Instance
+    {
+        get
+        {
+            if(_instance == null)_instance = new UIManager();
+            return _instance;
+        }
+    }
     public Dictionary<string, GameObject> dictUIObject;
     public Stack<BasePanel> stackUI;
 
     /// <summary>
     /// 当前场景下的画布（canvas）.
     /// </summary>
-    public GameObject canvasObj;
-
-    private static UIManager instance = new UIManager();
-    public static UIManager Instance 
-    {
-        get
-        {
-            if (instance == null)
-                throw new System.Exception("No such UIManager instance!");
-            return instance;
-        }
-    }
+    public static GameObject canvasObj;
     public BasePanel CurrentPanel { get => stackUI.Peek(); }
     private UIManager() 
     {
+        _instance = this;
         stackUI = new Stack<BasePanel>();
         dictUIObject = new Dictionary<string, GameObject>();
     }

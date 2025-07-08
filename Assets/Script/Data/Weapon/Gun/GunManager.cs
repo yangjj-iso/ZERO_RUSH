@@ -12,7 +12,7 @@ public class GunManager
         {
             if(_instance == null)
             {
-                Debug.LogError("枪械管理器未绑定实例!");
+                _instance = new GunManager();
             }
             return _instance;
         }

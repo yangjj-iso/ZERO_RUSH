@@ -12,7 +12,7 @@ public class BulletManager
         {
             if (_instance == null)
             {
-                Debug.LogError("子弹管理器未绑定实例");
+                _instance = new BulletManager();
             }
             return _instance;
         }

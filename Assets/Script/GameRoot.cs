@@ -17,15 +17,10 @@ public class GameRoot : MonoBehaviour
             return _instance;
         }
     }
-
-    private UIManager _uiManager;
-    public UIManager UIManagerRoot { get => _uiManager; }
-    private SceneController _sceneController;
-    public SceneController SceneControlRoot { get => _sceneController; }
-    private GunManager _gunManager;
-    public GunManager GunManager { get => _gunManager; }
-    private BulletManager _bulletManager;
-    public BulletManager BulletManager { get => _bulletManager; }
+    public UIManager UIManagerRoot { get => UIManager.Instance; }
+    public SceneController SceneControlRoot { get => SceneController.Instance; }
+    public GunManager GunManagerRoot { get => GunManager.Instance; }
+    public BulletManager BulletManagerRoot { get => BulletManager.Instance; }
     
 
     private void Awake()
@@ -38,17 +33,13 @@ public class GameRoot : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
-        _uiManager = UIManager.Instance;
-        _sceneController = new SceneController();
-        _gunManager = new GunManager();
-        _bulletManager = new BulletManager();
         SceneController.Instance.dictScene.Add("MainMenuScene", new MainMenuScene());
     }
 
     private void Start()
     {
         DontDestroyOnLoad(this.gameObject);
-        _uiManager.canvasObj = UIMethods.Instance.FindCanvas();
+        UIManager.canvasObj = UIMethods.Instance.FindCanvas();
 
         #region 开始游戏
         UIManager.Instance.Push(new MainMenuPanel(MainMenuPanel.uIType));

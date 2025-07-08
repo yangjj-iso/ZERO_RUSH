@@ -6,17 +6,16 @@ using UnityEngine.SceneManagement;
 
 public class SceneController
 {
-    private static SceneController instance;
+    private static SceneController _instance;
     public static SceneController Instance
     {
         get
         {
-            if(instance == null)
+            if(_instance == null)
             {
-                Debug.LogError("场景控制器未绑定实例");
-                return null;
+                _instance = new SceneController();
             }
-            return instance;
+            return _instance;
         }
     }
 
@@ -44,7 +43,7 @@ public class SceneController
 
     public SceneController()
     {
-        instance = this;
+        _instance = this;
         dictScene = new Dictionary<string, SceneBase>();
     }
 }
