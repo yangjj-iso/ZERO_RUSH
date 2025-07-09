@@ -1,0 +1,12 @@
+{
+    "guns": [
+        {
+            "_name": "PrototypeGun",
+            "_path": "Prefab/Weapon/Gun/PrototypeGun"
+        },
+        {
+            "_name": "ShotGun",
+            "_path": "Prefab/Weapon/Gun/ShotGun"
+        }
+    ]
+}

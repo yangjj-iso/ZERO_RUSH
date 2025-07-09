@@ -1,0 +1,8 @@
+{
+    "bullets": [
+        {
+            "_name": "PrototypeBullet",
+            "_path": "Prefab/Weapon/Bullet/PrototypeBullet"
+        }
+    ]
+}
